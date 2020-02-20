@@ -1,181 +1,249 @@
 package view;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
-
-import controller.AlunoController;
-import model.Aluno;
-import model.Data;
 
 public class AlunoView {
 
+	private JPanel painelDaJanela;
+	
 	private JFrame janela;
+	private JLabel lblMatricula; 
+	private JLabel lblNome; 
+	private JLabel lblDataNasc; 
+	private JLabel lblRg; 
+	private JLabel lblCpf; 
+	private JLabel lblLogradouro; 
+	private JLabel lblNumero; 
+	private JLabel lblComplemento; 
+	private JLabel lblBairro; 
+	private JLabel lblCep; 
+	private JLabel lblTelefone; 
+	private JLabel lblSenha;
+	private JLabel lblEstado;
+	private JLabel lblCidade;
+	private JLabel lblSexo;
+	
 	private JButton botao1;
 	private JButton botao2;
-	private JTextField txtMatricula;
-	private JTextField txtNome;
-	private JTextField txtData;
-	private JTextField txtSexo;
+	
+	private JRadioButton rbtMasculino;
+	private JRadioButton rbtFeminino;
+	private ButtonGroup grpRadio;
 
-	public AlunoView() {
-		iniciaGui();
-	}
+	private JTextField txtMatricula; 
+	private JTextField txtNome; 
+	private JTextField txtDataNasc; 
+	private JTextField txtRg; 
+	private JTextField txtCpf; 
+	private JTextField txtLogradouro; 
+	private JTextField txtNumero; 
+	private JTextField txtComplemento; 
+	private JTextField txtBairro; 
+	private JTextField txtCep; 
+	private JTextField txtTelefone; 
+	private JTextField txtSenha; 
+	
+	private JComboBox cbEstado;
+	private String[] equipamentosE = {"SP - Sao Paulo", "RJ - Rio de janeiro"}; 
+	private JComboBox cbCidade;
+	private String[] equipamentosC = {"Sao Paulo", "Osasco", "Carapicuiba", "Diadema", "Cotia"}; 
+	
+	
 
-	public void iniciaGui() {
+	public void iniciaAluno() {
+		//instanciando
+		janela = new JFrame();
+		painelDaJanela = (JPanel) janela.getContentPane();
+		lblMatricula = new JLabel();
+		lblNome = new JLabel();
+		lblDataNasc = new JLabel();
+		lblSexo = new JLabel();
+		lblRg = new JLabel();
+		botao1 = new JButton();
+		botao2 = new JButton();
+		lblCpf = new JLabel();
+		lblLogradouro = new JLabel();
+		lblNumero = new JLabel();
+		lblComplemento = new JLabel();
+		lblBairro = new JLabel();
+		lblCep = new JLabel();
+		lblTelefone = new JLabel();
+		lblSenha = new JLabel();
+		lblEstado = new JLabel();
+		lblCidade = new JLabel();
+		rbtMasculino = new JRadioButton();
+		rbtFeminino = new JRadioButton();
+		txtMatricula = new JTextField();
+		txtNome = new JTextField();
+		txtDataNasc = new JTextField();
+		txtRg = new JTextField();
+		txtCpf = new JTextField();
+		txtLogradouro = new JTextField();
+		txtNumero = new JTextField();
+		txtComplemento = new JTextField();
+		txtBairro = new JTextField();
+		txtCep = new JTextField();
+		txtTelefone = new JTextField();
+		txtSenha = new JTextField();
+		cbCidade = new JComboBox(equipamentosC);
+		cbEstado = new JComboBox(equipamentosE);
+		
+		
+		//config label nome
+		lblNome.setText("Nome : ");
+		lblNome.setBounds(4, 20, 400, 25);
+		txtNome.setBounds(50, 20, 210, 25);
+	
+		//config label Data de nascimento
+		lblDataNasc.setText("Data de nascimento : ");
+		lblDataNasc.setBounds(270, 20, 150, 25);
+		txtDataNasc.setBounds(400, 20, 70, 25);
+		
+		//config label Matricula 
+		lblMatricula.setText("Matricula : ");
+		lblMatricula.setBounds(295, 65, 150, 25);
+		txtMatricula.setBounds(360, 65, 110, 25);
+		
+		//config label Rg
+		lblRg.setText("RG : ");
+		lblRg.setBounds(160, 65, 200, 25);
+		txtRg.setBounds(185, 65, 100, 25);
+		
+		//config label Cpf
+		lblCpf.setText("CPF : ");
+		lblCpf.setBounds(4, 65, 120, 25);
+		txtCpf.setBounds(35, 65, 120, 25);
+		
+		//config label Logradouro
+		lblLogradouro.setText("Logradouro : ");
+		lblLogradouro.setBounds(4, 115, 208, 25);
+		txtLogradouro.setBounds(85, 115, 250, 25);
+		
+		//config label Numero
+		lblNumero.setText("Numero : ");
+		lblNumero.setBounds(345, 115, 150, 25);
+		txtNumero.setBounds(400, 115, 70, 25);
+		
+		//config label Complemento
+		lblComplemento.setText("Complemento : ");
+		lblComplemento.setBounds(4, 160, 150, 25);
+		txtComplemento.setBounds(100, 160, 150, 25);
+		
+		//config label Bairro
+		lblBairro.setText("Bairro : ");
+		lblBairro.setBounds(260, 160, 208, 25);
+		txtBairro.setBounds(310, 160, 160, 25);
+		
+		//config label Cep
+		lblCep.setText("Cep : ");
+		lblCep.setBounds(20, 210, 208, 25);
+		txtCep.setBounds(70, 210, 130, 25);
+		
+		//config label Telefone
+		lblTelefone.setText("Telefone : ");
+		lblTelefone.setBounds(230, 210, 208, 25);
+		txtTelefone.setBounds(310, 210, 130, 25);
+		
+	
+		//config Combo box estado
+		lblEstado.setText("Selecione seu estado :");
+		lblEstado.setBounds(10, 260, 200, 25);
+		cbEstado.setSelectedIndex(-1);
+		cbEstado.setBounds(150, 260, 150, 25);
+		cbEstado.setMaximumRowCount(10);
 
-		// definir a tela e suas caracteristicas
-		JFrame janela = new JFrame();
-		janela.setTitle("Cadastrar aluno");
-		janela.setSize(500, 300);
-		janela.getContentPane().setLayout(null);
-		janela.setLocationRelativeTo(null);
+		//config Combo box cidade
+		lblCidade.setText("Selecione seu cidade :");
+		lblCidade.setBounds(10, 310, 200, 25);
+		cbCidade.setSelectedIndex(-1);
+		cbCidade.setBounds(150, 310, 150, 25);
+		cbCidade.setMaximumRowCount(10);
 
-		// criando JB para botao1
-		JButton botao1 = new JButton();
-		botao1.setText("Registrar");
-		botao1.setBounds(70, 190, 100, 50);
-		botao1.addActionListener(new CadastroListener());
+		// cria o objeto de grupo de botoes
+		grpRadio = new ButtonGroup();
 
-		// criando JB para botao2
-		JButton botao2 = new JButton();
+		// adiciona os botoes ao grupo
+		grpRadio.add(rbtMasculino);
+		grpRadio.add(rbtFeminino);
+		
+		// configuraçao do botao Divorciado
+		rbtMasculino.setText("Masculino");
+		rbtMasculino.setBounds(330, 310, 150, 25);
+
+		// configuraçao do botao Divorciado
+		rbtFeminino.setText("Feminino");
+		rbtFeminino.setBounds(330, 285, 150, 25);
+		
+		//lblSexo
+		lblSexo.setText("Selecione o sexo");
+		lblSexo.setBounds(330, 255, 150, 25);
+		
+		//config label Senha
+		lblSenha.setText("Senha : ");
+		lblSenha.setBounds(180, 355, 208, 25);
+		txtSenha.setBounds(180, 385, 100, 25);
+		
+		//config botao1
+		botao1.setText("Confirmar");
+		botao1.setBounds(80, 450, 100, 50);
+		
+		//config botao1
 		botao2.setText("Cancelar");
-		botao2.setBounds(300, 190, 100, 50);
-
-		// criando JL para matricula
-		JLabel lblMatricula = new JLabel();
-		lblMatricula.setText("Matricula :");
-		lblMatricula.setBounds(10, 10, 80, 50);
-
-		// criando JL para nome
-		JLabel lblNome = new JLabel();
-		lblNome.setText("Nome :");
-		lblNome.setBounds(10, 50, 80, 50);
-		// criando JL para data
-		JLabel lblData = new JLabel();
-		lblData.setText("Data de nascimento :");
-		lblData.setBounds(10, 90, 120, 50);
-
-		// criando JL para sexo
-		JLabel lblSexo = new JLabel();
-		lblSexo.setText("Sexo :");
-		lblSexo.setBounds(10, 130, 80, 50);
-
-		// criando campo texto para matricula
-		JTextField txtMatricula = new JTextField();
-		txtMatricula.setBounds(150, 10, 250, 30);
-
-		// criando campo texto para nome
-		JTextField txtNome = new JTextField();
-		txtNome.setBounds(150, 50, 250, 30);
-
-		// criando campo texto para data
-		JTextField txtData = new JTextField();
-		txtData.setBounds(150, 90, 250, 30);
-
-		// criando campo texto para sexo
-		JTextField txtSexo = new JTextField();
-		txtSexo.setBounds(150, 130, 250, 30);
-
-		// add componentes na tela
-
-		janela.getContentPane().add(botao1);
-		janela.getContentPane().add(botao2);
-		janela.getContentPane().add(lblMatricula);
-		janela.getContentPane().add(lblNome);
-		janela.getContentPane().add(lblData);
-		janela.getContentPane().add(lblSexo);
-		janela.getContentPane().add(txtMatricula);
-		janela.getContentPane().add(txtNome);
-		janela.getContentPane().add(txtData);
-		janela.getContentPane().add(txtSexo);
-
-		// Demonstrar janela
+		botao2.setBounds(280, 450, 100, 50);
+	
+		
+		//confg painel da tela
+		painelDaJanela.setLayout(null);
+		painelDaJanela.add(lblMatricula);
+		painelDaJanela.add(txtMatricula);
+		painelDaJanela.add(lblNome);
+		painelDaJanela.add(txtNome);
+		painelDaJanela.add(lblDataNasc);
+		painelDaJanela.add(txtDataNasc);
+		painelDaJanela.add(lblRg);
+		painelDaJanela.add(txtRg);
+		painelDaJanela.add(lblCpf);
+		painelDaJanela.add(txtCpf);
+		painelDaJanela.add(lblLogradouro);
+		painelDaJanela.add(txtLogradouro);
+		painelDaJanela.add(lblEstado);
+		painelDaJanela.add(lblCidade);
+		painelDaJanela.add(lblNumero);
+		painelDaJanela.add(txtNumero);
+		painelDaJanela.add(lblComplemento);
+		painelDaJanela.add(txtComplemento);
+		painelDaJanela.add(lblBairro);
+		painelDaJanela.add(txtBairro);
+		painelDaJanela.add(lblCep);
+		painelDaJanela.add(txtCep);
+		painelDaJanela.add(lblTelefone);
+		painelDaJanela.add(txtTelefone);
+		painelDaJanela.add(lblSenha);
+		painelDaJanela.add(txtSenha);
+		painelDaJanela.add(cbEstado);
+		painelDaJanela.add(cbCidade);
+		painelDaJanela.add(rbtMasculino);
+		painelDaJanela.add(rbtFeminino);
+		painelDaJanela.add(lblSexo);
+		painelDaJanela.add(botao1);
+		painelDaJanela.add(botao2);
+		
+		
+		
+		// configuraçoes da janela
+		janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		janela.setSize(510, 550);
 		janela.setVisible(true);
+		
+		
 
 	}
 
-	public class CadastroListener implements ActionListener {
-		public void actionPerformed(ActionEvent e) {
-			Aluno a1 = new Aluno();
-			AlunoController ac = new AlunoController();
-			boolean registra = true;
-			// recebendo os dados para utilizar no sistema
-			try {
-				a1.setMatricula(txtMatricula.getText());
-				a1.setNome(txtNome.getText());
-				String data = txtData.getText();
-				String sexo = txtSexo.getText().toUpperCase();
-				
-				// Convertendo string em char
-				char aux = sexo.charAt(0);
-				a1.setSexo(aux);
-
-				String aux1 = a1.getNome().trim();
-				String aux2 = a1.getMatricula().trim();
-
-				int c1 = aux1.length();
-				int c2 = aux2.length();
-				int c3 = sexo.length();
-
-				// verifcando o preenchimento de sexo, matricula e nome
-				if ((c1 <= 0) || (c2 <= 0) || (c3 != 1)) {
-					registra = false;
-				}
-
-				// verificando sexo
-				if (aux != 'M' && aux != 'F') {
-					registra = false;
-				}
-				// Separando a data
-				String d1[] = data.split("/");
-				// verifando se a data foi separada corretamente
-				if (d1.length != 3) {
-					registra = false;
-				}
-
-				int dia = Integer.parseInt(d1[0]);
-				int mes = Integer.parseInt(d1[1]);
-				int ano = Integer.parseInt(d1[2]);
-
-				// Verificando se fevereiro tem 28 dias
-				if ((mes == 2) && (dia > 29)) {
-					registra = false;
-				}
-
-				// verificando se dia, mes e ano estão corretos
-				if ((dia > 31) || (dia < 1) || (mes < 1) || (mes > 12) || (ano > 2020) || (ano < 1990)) {
-					registra = false;
-				}
-				//
-				Data d2 = new Data(dia, mes, ano);
-				a1.setDataNascimentoData(d2);
-
-				if (registra) {
-					ac.inserirAluno(a1.getMatricula(), a1.getNome(), a1.getDataNascimentoData(), a1.getSexo());
-
-					JOptionPane.showMessageDialog(null, "Usuário cadastrado !!!");
-				} else {
-					JOptionPane.showMessageDialog(null, "Erro na digitação, favor revise !!!");
-				}
-
-			} catch (NumberFormatException N) { 
-				JOptionPane.showMessageDialog(null, "Dados inválidos verifique como você digitou os campos\n\n");
-			} catch (java.lang.ArrayIndexOutOfBoundsException A) {
-				JOptionPane.showMessageDialog(null, "A data precisa ser no formato dd/MM/yyyy");
-			} catch (java.lang.StringIndexOutOfBoundsException C) {
-				JOptionPane.showMessageDialog(null, "Digite o sexo");
-			}
-		}
-		public class CancelaListener implements ActionListener {
-			public void actionPerformed(ActionEvent e) {
-				janela.setVisible(false);
-			}
-		}
-	}
 }

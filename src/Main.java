@@ -9,7 +9,7 @@ public class Main {
 	//	aluno.incerrirAluno();
 	//	aluno.listarTodos();
 	//	aluno.listaAniversariantes(01);
-		new AlunoView();
+		new AlunoView().iniciaAluno();
 	}
 
 }

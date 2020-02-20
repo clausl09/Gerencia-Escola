@@ -14,7 +14,7 @@ import model.Data;
 public class AlunoController {
 	public void inserirAluno(String matricula, String nome, Data dataNasc, char sexo) {
 		Data data1 = new Data(07, 01, 1999);
-		Aluno a1 = new Aluno(matricula, nome, dataNasc, sexo);
+		Aluno a1 = new Aluno(matricula, nome, dataNasc, sexo, nome, nome, null, nome, nome);
 
 //		Data data2 = new Data(02, 12, 1999);
 //		Aluno a2 = new Aluno("n5813", "Enrico", data2, 'M');
